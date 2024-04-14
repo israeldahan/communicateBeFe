@@ -1,14 +1,5 @@
-import { Sequelize } from 'sequelize';
-
-
-// Option 3: Passing parameters separately (other dialects)
-const sequelize = new Sequelize({
-    database: 'session',
-    username: 'root',
-    password: 'root',
-    host: 'localhost',
-    dialect: 'mysql'/* one of 'mysql' | 'postgres' | 'sqlite' | 'mariadb' | 'mssql' | 'db2' | 'snowflake' | 'oracle' */
-});
+import sequelize from "./connector.js";
+import User from "./models/user-model.js";
 
 const connect = async () => {
     try {
@@ -30,4 +21,4 @@ const sync = async () => {
 
 
 
-export default { connect, sequelize, sync};
+export default { connect, sequelize, sync, User};
